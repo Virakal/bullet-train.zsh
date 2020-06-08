@@ -587,10 +587,7 @@ prompt_virtualenv() {
 # NVM: Node version manager
 prompt_nvm() {
   local nvm_prompt
-  if type nvm >/dev/null 2>&1; then
-    nvm_prompt=$(nvm current 2>/dev/null)
-    [[ "${nvm_prompt}x" == "x" || "${nvm_prompt}" == "system" ]] && return
-  elif type node >/dev/null 2>&1; then
+  if type node >/dev/null 2>&1; then
     nvm_prompt="$(node --version)"
   else
     return
